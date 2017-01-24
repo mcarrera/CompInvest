@@ -15,28 +15,27 @@ def find_events(ls_symbols, d_data):
     ts_market = df_close['SPY']
     
     print "Finding Events"
-
-    # Creating an empty dataframe
-    #df_events = copy.deepcopy(df_close)
-    #df_events = df_events * np.NAN
-
+    
     # Time stamps for the event range
     ldt_timestamps = df_close.index
-    k = 0
     writer = csv.writer(open('orders.csv', 'wb'), delimiter = ',')
+    writer2 = csv.writer(open('list10.csv', 'wb'))
+    
     for s_sym in ls_symbols:
-        for i in range(1, len(ldt_timestamps)):
+        for i in range(1, len(ldt_timestamps)-5):
             # Calculating the returns for this timestamp
             f_symprice_today = df_close[s_sym].ix[ldt_timestamps[i]]
             f_symprice_yest = df_close[s_sym].ix[ldt_timestamps[i - 1]]
+            f_symprice_5days = df_close[s_sym].ix[ldt_timestamps[i + 5]]
 
             #print(str(ldt_timestamps[i])+"Symbol:" + s_sym + " Today: " +
             #str(f_symprice_today) + " Yest: " + str(f_symprice_yest))
             # Look for event
-            f_threshold = 5.0
+            f_threshold = 10.0
             if f_symprice_today < f_threshold and f_symprice_yest >= f_threshold:
-                writer.writerow([ldt_timestamps[i], s_sym, "BUY", "100"])
-                writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "SELL", "100"])
+                #writer.writerow([ldt_timestamps[i], s_sym, "BUY", "100", f_symprice_today ])
+                #writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "SELL", "100", f_symprice_5days])
+                writer2.writerow([s_sym]);
 
 
 
