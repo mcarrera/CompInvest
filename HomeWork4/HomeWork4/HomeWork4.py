@@ -36,7 +36,7 @@ def find_events(ls_symbols, d_data):
             f_threshold = 5.0
             if f_symprice_today < f_threshold and f_symprice_yest >= f_threshold:
                 writer.writerow([ldt_timestamps[i], s_sym, "BUY", "100"])
-                writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "BUY", "100"])
+                writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "SELL", "100"])
 
 
 
