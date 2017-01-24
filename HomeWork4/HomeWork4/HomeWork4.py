@@ -35,15 +35,13 @@ def find_events(ls_symbols, d_data):
             # Look for event
             f_threshold = 5.0
             if f_symprice_today < f_threshold and f_symprice_yest >= f_threshold:
-                    #df_events[s_sym].ix[ldt_timestamps[i]] = 1
-                    #k = k + 1
-                    writer.writerow([ldt_timestamps[i], s_sym, "BUY", "100"])
-                    writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "BUY", "100"])
+                writer.writerow([ldt_timestamps[i], s_sym, "BUY", "100"])
+                writer.writerow([ldt_timestamps[i] + dt.timedelta(days=5), s_sym, "BUY", "100"])
 
 
 
-    print ("Events: " + str(k))            
-    return df_events
+       
+   
 
 
 if __name__ == '__main__':
