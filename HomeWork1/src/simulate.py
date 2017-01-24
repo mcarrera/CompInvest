@@ -44,8 +44,8 @@ def simulate(startdate, enddate, symbols, weights):
 
 ls_symbols =  ['BRCM', 'ADBE', 'AMD', 'ADI'] 
 ls_alloc = [0.0, 0.0, 0.1, 0.9]
-dt_start = dt.datetime(2011, 1, 1)
-dt_end = dt.datetime(2011, 12, 31)
+dt_start = dt.datetime(2008, 1, 1)
+dt_end = dt.datetime(2012, 12, 31)
 simulate(dt_start, dt_end, ls_symbols, ls_alloc)
 vol, daily_ret, sharpe, cum_ret = simulate(dt_start, dt_end, ls_symbols, ls_alloc)
 
