@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b22ff4c9-012b-4a55-ab3a-4780f7df3d6a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>HomeWork4.py</StartupFile>
+    <StartupFile>Market_sim.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,14 +22,26 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HomeWork4.py" />
-    <Compile Include="module1.py">
+    <Compile Include="Eventer.py" />
+    <Compile Include="Analyzer.py" />
+    <Compile Include="Market_sim.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="yahoo_finance\module1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="list5.csv" />
     <Content Include="orders.csv" />
+    <Content Include="run.bat" />
     <Content Include="sp5002012.txt" />
+    <Content Include="values.csv" />
+    <Content Include="yahoo_finance\prices.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="market_sym\" />
+    <Folder Include="yahoo_finance\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
