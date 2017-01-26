@@ -34,7 +34,7 @@ def find_events(ls_symbols, d_data):
             #str(f_symprice_today) + " Yest: " + str(f_symprice_yest))
             # Look for event
             f_threshold = 10.00
-            if f_symprice_today < f_threshold and f_symprice_yest >= f_threshold:
+            if f_symprice_today / f_symprice_yest <= 0.95:
                 writer.writerow([ldt_timestamps[i].year, ldt_timestamps[i].month, ldt_timestamps[i].day, s_sym, "BUY", "100"])
                 writer.writerow([ldt_timestamps[i+5].year, ldt_timestamps[i+5].month, ldt_timestamps[i+5].day, s_sym, "SELL", "100"])
                 #writer2.writerow([s_sym]);

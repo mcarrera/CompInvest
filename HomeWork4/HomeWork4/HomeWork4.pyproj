@@ -27,20 +27,20 @@
     <Compile Include="Market_sim.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="yahoo_finance\module1.py">
+    <Compile Include="yahoo_finance\pricer.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="list5.csv" />
-    <Content Include="orders.csv" />
+    <Content Include="Studies\ordersDrop5.csv" />
     <Content Include="run.bat" />
     <Content Include="sp5002012.txt" />
-    <Content Include="values.csv" />
+    <Content Include="Studies\valuesDrop5.csv" />
     <Content Include="yahoo_finance\prices.csv" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="market_sym\" />
+    <Folder Include="Studies\" />
     <Folder Include="yahoo_finance\" />
   </ItemGroup>
   <PropertyGroup>
