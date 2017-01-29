@@ -28,15 +28,15 @@ def find_events(ls_symbols, d_data):
             # Calculating the returns for this timestamp
             f_symprice_today = df_close[s_sym].ix[ldt_timestamps[i]]
             f_symprice_yest = df_close[s_sym].ix[ldt_timestamps[i - 1]]
-            #f_symprice_5days = df_close[s_sym].ix[ldt_timestamps[i + 5]]
+            f_symprice_5days = df_close[s_sym].ix[ldt_timestamps[i + 5]]
 
             #print(str(ldt_timestamps[i])+"Symbol:" + s_sym + " Today: " +
             #str(f_symprice_today) + " Yest: " + str(f_symprice_yest))
             # Look for event
             f_threshold = 10.00
             if f_symprice_today / f_symprice_yest <= 0.95:
-                writer.writerow([ldt_timestamps[i].year, ldt_timestamps[i].month, ldt_timestamps[i].day, s_sym, "BUY", "100"])
-                writer.writerow([ldt_timestamps[i+5].year, ldt_timestamps[i+5].month, ldt_timestamps[i+5].day, s_sym, "SELL", "100"])
+                writer.writerow([ldt_timestamps[i].year, ldt_timestamps[i].month, ldt_timestamps[i].day, s_sym, "BUY", "100", f_symprice_today])
+                writer.writerow([ldt_timestamps[i+5].year, ldt_timestamps[i+5].month, ldt_timestamps[i+5].day, s_sym, "SELL", "100", f_symprice_5days])
                 #writer2.writerow([s_sym]);
 
 
@@ -52,14 +52,14 @@ if __name__ == '__main__':
 
     dataobj = da.DataAccess('Yahoo')
     #get list of symbols from file
-    ls_symbols = []
+    ls_symbols = ['AMD']
     list = 'sp5002012.txt'
     #list = 'list5.csv'
 
-    with open(list, 'rb') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            ls_symbols.append(row[0])
+    #with open(list, 'rb') as f:
+    #    reader = csv.reader(f)
+    #    for row in reader:
+    #        ls_symbols.append(row[0])
     ls_symbols.append('SPY')
 
     ls_keys = ['actual_close']
