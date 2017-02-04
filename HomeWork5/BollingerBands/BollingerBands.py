@@ -11,8 +11,8 @@ if __name__ == '__main__':
     print "Start"
     #setup
     lookback = 20
-    dt_start = dt.datetime(2010, 6,12) 
-    dt_end = dt.datetime(2010, 6, 29) 
+    dt_start = dt.datetime(2008, 1,1)
+    dt_end = dt.datetime(2009, 12, 31) 
     ldt_timestamps = du.getNYSEdays(dt_start  - dt.timedelta(lookback*3), dt_end, dt.timedelta(hours=16))
     ls_timestamps = []
     
@@ -30,6 +30,7 @@ if __name__ == '__main__':
     bol_val = df_close.add(-means, fill_value = 0).div(stds, fill_value=0)
 
     print bol_val
+
     print df_close
 
                 
